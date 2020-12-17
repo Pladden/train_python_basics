@@ -1,5 +1,4 @@
 MONSTER_NUMBER = 12345937597
-MONSTER_TEXT = 'zzzzzz'
 
 def find_max_index(elements):
 	max_index = 0

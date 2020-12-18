@@ -55,3 +55,9 @@ def get_number(s):
 		return float(s)
 	except ValueError:
 		return None
+
+
+def swap(a, i):
+	b = a[i + 1]
+	a[i + 1] = a[i]
+	a[i] = b

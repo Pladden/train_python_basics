@@ -82,3 +82,17 @@ def test_order_asc_in_texts():
 	result = sort.order_asc(texts)
 	expected = ['aksenov', 'ivanov', 'petrov', 'sokolov', None, None]
 	assert expected == result
+
+
+def test_swap():
+	a = [1, 2, 3, 4, 5]
+	sort.swap(a, 0)
+	expected = [2, 1, 3, 4, 5]
+	assert expected == a
+
+
+def test_swap_2():
+	a = [1, 2, 3, 4, 5]
+	sort.swap(a, 1)
+	expected = [1, 3, 2, 4, 5]
+	assert expected == a

@@ -96,3 +96,11 @@ def test_swap_2():
 	sort.swap(a, 1)
 	expected = [1, 3, 2, 4, 5]
 	assert expected == a
+
+
+def test_order_asc():
+	elements = [34, 7, 19, 5]
+	result = sort.bubble_order(elements)
+	expected = [5, 7, 19, 34]
+	assert expected == elements
+	assert 6 == result

@@ -61,3 +61,18 @@ def swap(a, i):
 	b = a[i + 1]
 	a[i + 1] = a[i]
 	a[i] = b
+
+
+def bubble_order(elements):
+	n_elements = len(elements)
+	need_to_order = True 
+	counter = 0
+	while need_to_order:
+		need_to_order = False
+		for i in range(n_elements-1):
+			counter += 1
+			if elements[i] > elements[i+1]:
+				swap(elements, i)
+				need_to_order = True
+		n_elements -= 1
+	return counter

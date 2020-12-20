@@ -104,3 +104,10 @@ def test_order_asc():
 	expected = [5, 7, 19, 34]
 	assert expected == elements
 	assert 6 == result
+
+
+def test_compact():
+	elements = [None, 34, 7, None, 19]
+	result = sort.compact(elements)
+	expected = [34, 7, 19]
+	assert expected == result

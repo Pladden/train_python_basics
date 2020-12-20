@@ -13,18 +13,19 @@ def find_max_index(elements):
 
 
 def order_desc(original_elements):
-	elements = list(original_elements)
-	ordered_elements = list()  # []
-	n_of_elements = len(elements)
-	for i in range(n_of_elements):
-		max_element_index = find_max_index(elements)
-		max_element = elements[max_element_index]
-		if max_element == -MONSTER_NUMBER:
-			max_element = None
-		ordered_elements += [max_element]
-		elements[max_element_index] = -MONSTER_NUMBER
-	return ordered_elements
+	elements = compact(original_elements)
+	elements.sort()
+	elements.reverse()
+	n_nones = len(original_elements) - len(elements)
+	return elements + [None] * n_nones
 
+
+def compact(elements):
+	result = []
+	for e in elements:
+		if e is not None:
+			result += [e]
+	return result
 
 def find_min_index(elements):
 	min_index = 0
@@ -58,9 +59,7 @@ def get_number(s):
 
 
 def swap(a, i):
-	b = a[i + 1]
-	a[i + 1] = a[i]
-	a[i] = b
+	a[i], a[i+1] = a[i+1], a[i]
 
 
 def bubble_order(elements):
@@ -72,7 +71,7 @@ def bubble_order(elements):
 		for i in range(n_elements-1):
 			counter += 1
 			if elements[i] > elements[i+1]:
-				swap(elements, i)
+				elements[i], elements[i+1] = elements[i+1], elements[i]
 				need_to_order = True
 		n_elements -= 1
 	return counter
